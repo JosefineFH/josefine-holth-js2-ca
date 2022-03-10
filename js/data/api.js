@@ -1,0 +1,1 @@
+export const baseUrl = "https://strapi-api-jf-ca.herokuapp.com/";

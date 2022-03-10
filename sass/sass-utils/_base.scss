@@ -1,0 +1,33 @@
+*{
+  margin: 0;
+}
+
+body{
+  background-color: #D5D3E1;
+}
+
+main{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: sans-serif;
+  margin-top: $baseMargin;
+}
+ul{
+  list-style: none;
+}
+.fa-spin{
+  margin: 10rem 0;
+}
+.fa-spinner:before{
+  font-size: 3em;
+}
+.favorite_count{
+  border: solid 1px $textcolor;
+  padding: $baseMargin;
+}
+
+.toggle{
+  color: #72638E;
+  background-color: white;
+}
