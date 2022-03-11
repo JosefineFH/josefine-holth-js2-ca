@@ -6,7 +6,6 @@ import { getToken, getUser } from "../utils/storage.js";
 const token = getToken();
 const user = getUser();
 
-
 if (!token && !user) {
   document.location.href = "/login.html";
 }
@@ -26,7 +25,6 @@ const bodyTextInput = document.querySelector("#bodyText");
 const categories = document.querySelector("#category");
 const idInput = document.querySelector("#id");
 
-
 (async function () {
   const reviewUrl = baseUrl + `articles/${id}`;
   try {
@@ -35,14 +33,13 @@ const idInput = document.querySelector("#id");
 
     getCategories();
 
-    categories.value 
+    categories.value;
     titleInput.value = details.title;
     authorInput.value = details.author;
     summaryInput.value = details.summary;
     bodyTextInput.value = details.bodyText;
     idInput.value = details.id;
     categories.value = details.category;
-    
   } catch (error) {
     displayMessage(
       "warning",
@@ -60,14 +57,11 @@ function submitChanges(event) {
   const title = titleInput.value.trim();
   const author = authorInput.value.trim();
   const summary = summaryInput.value.trim();
-  const coverImg = coverInput.value;
+  const cover = coverInput.files;
   const bodyText = bodyTextInput.value.trim();
   const idValue = idInput.value;
-  
   const category = categories.value;
-  console.log(category)
-  
-
+  console.log(cover)
   if (
     title.length === 0 ||
     summary.length === 0 ||
@@ -81,46 +75,50 @@ function submitChanges(event) {
       ".message__container"
     );
   }
-  updateArticles(title, author, summary, bodyText, category, idValue);
+  
+
+
+  const data  = JSON.stringify({ title, author, summary, bodyText, category });
+
+  updateArticles(data , idValue, cover);
 }
 
-async function updateArticles(title, author, summary, bodyText, category, id){
-  console.log(id)
+async function updateArticles(data, id, cover) {
   const updateUrl = baseUrl + "articles/" + id;
-  console.log(updateUrl)
-  console.log(category)
-  const data = JSON.stringify({
 
-        "title": title,
-        "author": author,
-        "summary": summary,
-        "bodyText": bodyText,
-        "category": category
-        
+  const formData = new FormData();
+  console.log(cover[0])
 
-});
+  formData.append("files.image", cover[0]);
+  console.log(formData)
+  
+  formData.append("data", data);
+  
+  console.log(formData)
+  console.log(data)
 
-const options = {
-  method: "PUT",
-  body: data,
-  headers: {
+  const options = {
+    method: "PUT",
+    body: formData,
+    headers: {
       "Content-Type": "application/json",
       Authorization: `Bearer ${token}`,
-  },
-};
+    },
+  };
 
-try {
-  const response = await fetch(updateUrl, options);
-  const json = await response.json();
+  console.log(options);
+  try {
+    const response = await fetch(updateUrl, options);
+    const json = await response.json();
 
-  if (json.error) {
-      displayMessage("error", json.error.message, ".message__container");
+    if (json.error) {
+        displayMessage("error", json.error.message, ".message__container");
+    }
+    console.log(json)
+    // window.location.href = "/loginDashboard.html"
+
+  } catch (error) {
+    console.log(error);
   }
-  console.log(json)
-  // window.location.href = "/loginDashboard.html"
-
-} catch (error) {
-  console.log(error);
-}
-console.log(data)
+  
 }

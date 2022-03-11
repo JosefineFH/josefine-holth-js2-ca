@@ -10,7 +10,7 @@ export default async () => {
     json.forEach(category => {
 
       categories.innerHTML = `
-      <option value='{id: ${category.id}, title: ${category.title}}'>${category.title}</option>
+      <option value='${category.id}'>${category.title}</option>
       `;
     });
 

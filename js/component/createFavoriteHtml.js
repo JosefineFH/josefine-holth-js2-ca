@@ -1,5 +1,5 @@
-import { removeFromFavorites } from "../util/removeFavorites.js";
-import { getFromStorage } from "../util/storage.js";
+import { removeFromFavorites } from "../utils/removeFavorites.js";
+import { getFromStorage } from "../utils/storage.js";
 
 let currentFavPosts;
 let container;
