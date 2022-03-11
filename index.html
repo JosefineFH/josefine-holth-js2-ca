@@ -1,51 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>JavaScript 2 - Course Assignment</title>
-  <link rel="stylesheet" href="/css/style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-</head>
-<body>
-  
-  <nav class="navbar">
-    <div class="navbar__list" id="topNavbar" >
-      <ul>
-        <li>
-          <a href="/">Link</a>
-        </li>
-        <li>
-          <a href="/">Link</a>
-        </li>
-        <li>
-          <a href="/">Link</a>
-        </li>
-      </ul>
-    </div>
-    <i class="fa fa-bars navbar__icon"></i>
-  </nav>
-
-  <main>
-    <section>
-      <div class="favorite_count"></div>
-    </section>
-    <section>
-      <form>
-        <label for="search">Search
-          <input type="text">
-        </label>
-      </form>
-    </section>
-    
-    <section>
-      <i class="fa fa-spinner fa-spin"></i>
-      <div class="futures_articles">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript 2 - Course Assignment</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="navbar__list" id="topNavbar">
+        <ul>
+          <li>
+            <a href="/favourites.html">FAVORITES</a>
+          </li>
+          <li>
+            <a href="/login.html">LOGIN</a>
+          </li>
+          <li>
+            <a href="/">Link</a>
+          </li>
+        </ul>
       </div>
-    </section>
-  </main>
-  <script src="/js/script.js" type="module"></script>
-  
-</body>
+      <i class="fa fa-bars navbar__icon"></i>
+    </nav>
+
+    <main>
+      <header>
+        <div class="favorite_count"></div>
+        <form>
+          <label for="search" class="search">Search </label>
+          <input type="text" id="search" name="search" />
+        </form>
+      </header>
+
+      <section>
+        <div class="post__container">
+          <i class="fa fa-spinner fa-spin"></i>
+
+        </div>
+      </section>
+    </main>
+    <script src="/js/script.js" type="module"></script>
+  </body>
 </html>
