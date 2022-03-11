@@ -29,4 +29,10 @@ Create a login option that allows an admin user to do the following tasks
 
 ## Setup
 
+Login for the admin page:
+```
+username: admin@admin.com
+password: Pass123
+```
+
 ## Status
