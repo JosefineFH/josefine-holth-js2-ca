@@ -87,26 +87,20 @@ async function updateArticles(data, id, cover) {
   const updateUrl = baseUrl + "articles/" + id;
 
   const formData = new FormData();
-  console.log(cover[0])
 
-  formData.append("files.image", cover[0]);
-  console.log(formData)
+  formData.append("files.cover", cover[0]);
   
   formData.append("data", data);
-  
-  console.log(formData)
-  console.log(data)
 
   const options = {
     method: "PUT",
     body: formData,
     headers: {
-      "Content-Type": "application/json",
+      // "Content-Type": "application/json",
       Authorization: `Bearer ${token}`,
     },
   };
 
-  console.log(options);
   try {
     const response = await fetch(updateUrl, options);
     const json = await response.json();
