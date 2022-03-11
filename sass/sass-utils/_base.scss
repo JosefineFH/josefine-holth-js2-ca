@@ -9,25 +9,42 @@ body{
 main{
   display: flex;
   flex-direction: column;
-  align-items: center;
   font-family: sans-serif;
   margin-top: $baseMargin;
+  padding: $baseMargin;
 }
 ul{
   list-style: none;
 }
 .fa-spin{
-  margin: 10rem 0;
+  margin: 15rem auto;
 }
 .fa-spinner:before{
-  font-size: 3em;
-}
-.favorite_count{
-  border: solid 1px $textcolor;
-  padding: $baseMargin;
+  font-size: 4em;
 }
 
 .toggle{
   color: #72638E;
   background-color: white;
+}
+.warning{
+  padding: 30px;
+  margin: 30px auto;
+  border: solid $textcolor 1px;
+  font-weight: bolder;
+  text-transform: uppercase;
+}
+
+header{
+  margin: $baseMargin;
+  form{
+    margin: $baseMargin 0;
+  }
+}
+
+@media (min-width: $breakpoint-laptop){
+  header{
+    width: 1000px;
+    margin: auto;
+  }
 }

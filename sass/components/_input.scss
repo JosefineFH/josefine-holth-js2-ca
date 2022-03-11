@@ -1,0 +1,23 @@
+form{
+  display: flex;
+  align-items: stretch;
+}
+input{
+  border: none;
+  font-size: 20px;
+  padding: 10px;
+}
+input:focus-visible{
+  outline: none;
+}
+input:hover{
+  background-color: #AEA9C5;
+}
+label{
+  background-color: #AEA9C5;
+  border: none;
+  color: white;
+  text-decoration: none;
+  padding: 13px;
+  cursor: pointer;
+}
