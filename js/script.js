@@ -11,12 +11,12 @@ async function getPosts() {
     const featuredPostUrl = baseUrl + "articles";
     const response = await fetch(featuredPostUrl);
     const posts = await response.json();
-    
+
     const { pathname } = document.location;
-    
-    console.log("test")
+
     if (pathname === "/loginDashboard.html") {
       displayPosts(posts);
+    
     } else {
       createFeaturedPosts(posts);
 
