@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript 2 - Course Assignment</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="navbar__list" id="topNavbar">
+        <ul>
+          <li>
+            <a href="/favourites.html">FAVORITES</a>
+          </li>
+          <li>
+            <a href="/">LOGIN</a>
+          </li>
+          <li>
+            <a href="/">Link</a>
+          </li>
+        </ul>
+      </div>
+      <i class="fa fa-bars navbar__icon"></i>
+    </nav>
+
+    <main>
+      <header>
+        <h2>Edit Your Post</h2>
+      </header>
+      <section>
+        <div class="message__container"></div>
+      </section>
+      <section class="form__container">
+        <form>
+          <div>
+            <label for="title">Post Title </label>
+            <input type="text" name="title" id="title">
+          </div>
+          <div>
+            <label for="author">Author </label>
+            <input type="text" name="author" id="author">
+          </div>
+          <div>
+            <label for="summary">Summary </label>
+            <input type="text" name="summary" id="summary">
+          </div>
+
+          <div>
+            <label for="cover">Cover Image </label>
+            <input type="file"
+       id="cover" name="cover"
+       accept="image/png, image/jpeg">
+          </div>
+          <div>
+            <label for="category">Category </label>
+            <select name="category" id="category"></select>
+          </div>
+
+          <div>
+            <p for="bodyText">Post body </p>
+            <textarea name="bodyText" id="bodyText" cols="30" rows="10"></textarea>
+          </div>
+
+          <input id="id" type="hidden" />
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </section>
+      
+    </main>
+    <script src="/js/admin/editPost.js" type="module"></script>
+    
+  </body>
+</html>
