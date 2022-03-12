@@ -8,6 +8,7 @@ This is a school assignment for the javascript 2 lectures.
 - [Status](#setup)
 
 ## General Info
+When starting the prosject it takes sometime before the heruku API replays
 #### Level 1
 This is a school assignment. I had to use a Strapi API where a login was already set up to make a GET query to retrieve a list of resources. The list must have at least 3 properties to display.
 Each item must have a button or icon to switch the item in and out of localStorage. There should also be a text input to create a filter of the array.
