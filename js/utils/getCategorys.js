@@ -9,7 +9,7 @@ export default async () => {
     const categories = document.querySelector("#category");
     json.forEach(category => {
 
-      categories.innerHTML = `
+      categories.innerHTML += `
       <option value='${category.id}'>${category.title}</option>
       `;
     });
