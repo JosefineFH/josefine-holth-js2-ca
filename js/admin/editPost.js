@@ -109,7 +109,7 @@ async function updateArticles(data, id, cover) {
         displayMessage("error", json.error.message, ".message__container");
     }
     console.log(json)
-    // window.location.href = "/loginDashboard.html"
+    window.location.href = "/loginDashboard.html"
 
   } catch (error) {
     console.log(error);
