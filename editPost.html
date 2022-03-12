@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>JavaScript 2 - Course Assignment</title>
+    <script src="https://cdn.ckeditor.com/4.17.2/standard/ckeditor.js"></script>
     <link rel="stylesheet" href="/css/style.css" />
     <link
       rel="stylesheet"
@@ -40,22 +41,25 @@
         <form>
           <div>
             <label for="title">Post Title </label>
-            <input type="text" name="title" id="title">
+            <input type="text" name="title" id="title" />
           </div>
           <div>
             <label for="author">Author </label>
-            <input type="text" name="author" id="author">
+            <input type="text" name="author" id="author" />
           </div>
           <div>
             <label for="summary">Summary </label>
-            <input type="text" name="summary" id="summary">
+            <input type="text" name="summary" id="summary" />
           </div>
 
           <div>
             <label for="cover">Cover Image </label>
-            <input type="file"
-       id="cover" name="cover"
-       accept="image/png, image/jpeg">
+            <input
+              type="file"
+              id="cover"
+              name="cover"
+              accept="image/png, image/jpeg"
+            />
           </div>
           <div>
             <label for="category">Category </label>
@@ -63,17 +67,30 @@
           </div>
 
           <div>
-            <p for="bodyText">Post body </p>
-            <textarea name="bodyText" id="bodyText" cols="30" rows="10"></textarea>
+            <p for="bodyText">Post body</p>
+            <textarea
+              name="bodyText"
+              id="bodyText"
+              cols="30"
+              rows="10"
+            ></textarea>
           </div>
 
           <input id="id" type="hidden" />
           <button type="submit" class="btn btn-primary">Submit</button>
         </form>
       </section>
-      
     </main>
+    <div id="editor">This is some sample content.</div>
+
     <script src="/js/admin/editPost.js" type="module"></script>
-    
+    <script>
+      CKEDITOR.replace( 'bodyText' );
+
+    //   document.querySelector('form').addEventListener('click', function() {
+    //      content = CKEDITOR.instances.bodyText.getData()
+    //      console.log(content);
+    //  }, false);
+</script>
   </body>
 </html>

@@ -14,7 +14,7 @@ const message = document.querySelector(".message__container");
 const queryString = document.location.search;
 const params = new URLSearchParams(queryString);
 const id = params.get("id");
-console.log(id);
+
 
 const form = document.querySelector("form");
 const titleInput = document.querySelector("#title");
@@ -25,6 +25,7 @@ const bodyTextInput = document.querySelector("#bodyText");
 const categories = document.querySelector("#category");
 const idInput = document.querySelector("#id");
 
+
 (async function () {
   const reviewUrl = baseUrl + `articles/${id}`;
   try {
@@ -32,7 +33,7 @@ const idInput = document.querySelector("#id");
     const details = await response.json();
 
     getCategories();
-
+    
     categories.value;
     titleInput.value = details.title;
     authorInput.value = details.author;
@@ -53,30 +54,33 @@ form.addEventListener("submit", submitChanges);
 
 function submitChanges(event) {
   event.preventDefault();
+
+  let content = CKEDITOR.instances.bodyText.getData()
+
+
   message.innerHTML = "";
   const title = titleInput.value.trim();
   const author = authorInput.value.trim();
   const summary = summaryInput.value.trim();
   const cover = coverInput.files;
-  const bodyText = bodyTextInput.value.trim();
+  const bodyText =  CKEDITOR.instances.bodyText.getData()
   const idValue = idInput.value;
   const category = categories.value;
-  console.log(cover)
+
+  console.log(bodyText);
   if (
     title.length === 0 ||
     summary.length === 0 ||
     bodyText.length === 0 ||
     idValue.length === 0
-  ) {
-    document.querySelector(".message__container").innerHTML = "";
-    return displayMessage(
-      "warning",
-      "Please supply proper values in the text field",
-      ".message__container"
-    );
-  }
-  
-
+    ) {
+      document.querySelector(".message__container").innerHTML = "";
+      return displayMessage(
+        "warning",
+        "Please supply proper values in the text field",
+        ".message__container"
+        );
+      }
 
   const data  = JSON.stringify({ title, author, summary, bodyText, category });
 
@@ -85,7 +89,7 @@ function submitChanges(event) {
 
 async function updateArticles(data, id, cover) {
   const updateUrl = baseUrl + "articles/" + id;
-
+console.log(data)
   const formData = new FormData();
 
   formData.append("files.cover", cover[0]);
