@@ -8,7 +8,8 @@ dropdown();
 
 async function getPosts() {
   try {
-    const featuredPostUrl = baseUrl + "articles";
+    
+    const featuredPostUrl = baseUrl + "articles?_sort=published_at:DESC";
     const response = await fetch(featuredPostUrl);
     const posts = await response.json();
 
