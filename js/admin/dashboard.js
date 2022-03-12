@@ -1,12 +1,14 @@
 import { getToken, getUser } from "../utils/storage.js";
 import { dropdown } from "../component/dropdownMenu.js";
+import { removePost } from "./removePost.js";
+
 dropdown();
-console.log("connected")
+
 export default function displayPosts(posts) {
-  console.log("connected")
 
   const token = getToken();
   const user = getUser();
+  
 
   if(!user.length || !token.length){
     document.location.href = "/login.html";
@@ -21,6 +23,7 @@ export default function displayPosts(posts) {
     let postCategory;
     let timeStamp = lastUpdated;
     let updated = timeStamp.slice(0, 10);
+    
 
     if (postAuthor === null) {
       postAuthor = "Unknown";
@@ -39,12 +42,22 @@ export default function displayPosts(posts) {
     <p>${postAuthor} - ${updated}</p>
     </div>
     <div>
-    <button>Remove</button>
+    <button class="delete__button" data-id="${post.id}">Remove</button>
     <a href="/editPost.html?id=${post.id}">Edit</a>
     </div>
     </div>
     `
-
   });
+
+  const removeButton = document.querySelectorAll(".delete__button");
+  
+  removeButton.forEach(button => {
+    let postId = button.dataset.id
+    button.addEventListener("click", () => {
+      removePost(postId);
+  })
+    
+  });
+
 
 }
