@@ -7,9 +7,9 @@
 @media (min-width: $breakpoint-laptop) {
   .post__container {
     flex-wrap: wrap;
-    justify-content: space-between;
     flex-direction: row;
     max-width: 1000px;
+    align-items: stretch;
   }
 }
 
