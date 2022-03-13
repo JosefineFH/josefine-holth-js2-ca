@@ -2,6 +2,9 @@
   img{
     width: 100%;
   }
+  span{
+    background-color: unset;
+  }
 }
 .img__container{
   height: 20em;
@@ -14,7 +17,6 @@ h1{
   font-family: $headerFont;
   margin: $baseMargin*2 ;
 }
-
 @media (min-width: $breakpoint-laptop){
   .main__post {
     width: 900px;
@@ -23,4 +25,5 @@ h1{
   .author__paragraph{
     margin: $baseMargin 0;
   }
+  
 }

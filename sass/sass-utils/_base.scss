@@ -38,16 +38,6 @@ ul{
   text-transform: uppercase;
 }
 
-header{
-  margin: $baseMargin;
-  form{
-    margin: $baseMargin 0;
-  }
-}
-
-@media (min-width: $breakpoint-laptop){
-  header{
-    width: 1000px;
-    margin: auto;
-  }
+form{
+  margin: $baseMargin 0;
 }

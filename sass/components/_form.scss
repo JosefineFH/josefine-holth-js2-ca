@@ -3,6 +3,22 @@ form{
   flex-direction: column;
 }
 
+/* ------------------------------- index page ------------------------------- */
+.info__container{
+  font-family: sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  div{
+    margin: 0 $baseMargin;
+  }
+  form{
+    display: grid;
+    grid-template-columns: 80px 200px;
+  }
+}
+
 /* ------------------------------- login page ------------------------------- */
 .login__container{
   width: 700px;
