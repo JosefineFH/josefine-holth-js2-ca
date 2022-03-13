@@ -20,44 +20,32 @@ const categories = document.querySelector("#category");
 getCategories();
 
 export function getPostValues(event) {
-  console.log(event);
   event.preventDefault();
-  console.log("add post connected");
 
   getCategories();
   const title = titleInput.value.trim();
   const author = authorInput.value.trim();
   const summary = summaryInput.value.trim();
   const cover = coverInput.files;
-  const bodyText = bodyTextInput.value.trim();
+  const bodyText = CKEDITOR.instances.bodyText.getData();
   const category = categories.value;
-  if (
-    title.length === 0 ||
-    summary.length === 0 ||
-    bodyText.length === 0
-  ) {
-    message.innerHTML = "You need to add values to all of the inputs"
+  
+  if (title.length === 0 || summary.length === 0 || bodyText.length === 0) {
+    message.innerHTML = "You need to add values to all of the inputs";
   } else {
-    const data  = JSON.stringify({ title, author, summary, bodyText, category });
-    addPost(data, cover)
-      console.log(
-        data
-      );
-
+    const data = JSON.stringify({ title, author, summary, bodyText, category });
+    addPost(data, cover);
   }
 }
 
 form.addEventListener("submit", getPostValues);
 
-async function addPost(data, cover){
-  console.log(data)
-
+async function addPost(data, cover) {
   const updateUrl = baseUrl + "articles";
-
   const formData = new FormData();
 
   formData.append("files.cover", cover[0]);
-  
+
   formData.append("data", data);
 
   const options = {
@@ -69,17 +57,14 @@ async function addPost(data, cover){
     },
   };
 
-
   try {
     const response = await fetch(updateUrl, options);
     const json = await response.json();
 
     if (json.error) {
-        displayMessage("error", json.error.message, ".message__container");
+      displayMessage("error", json.error.message, ".message__container");
     }
-    console.log(json)
-    window.location.href = "/loginDashboard.html"
-
+    window.location.href = "/loginDashboard.html";
   } catch (error) {
     console.log(error);
   }

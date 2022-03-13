@@ -4,7 +4,8 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>JavaScript 2 - Course Assignment</title>
+    <title>The Everyday - Add Post</title>
+    <script src="https://cdn.ckeditor.com/4.17.2/standard/ckeditor.js"></script>
     <link rel="stylesheet" href="/css/style.css" />
     <link
       rel="stylesheet"
@@ -65,7 +66,12 @@
   
             <div>
               <p for="bodyText">Post body </p>
-              <textarea name="bodyText" id="bodyText" cols="30" rows="10"></textarea>
+              <textarea
+              name="bodyText"
+              id="bodyText"
+              cols="30"
+              rows="10"
+            ></textarea>
             </div>
   
             <input id="id" type="hidden" />
@@ -76,6 +82,13 @@
       
     </main>
     <script src="/js/admin/addPost.js" type="module"></script>
+    <script>
+      CKEDITOR.replace( 'bodyText' );
+
+      document.querySelector('form').addEventListener('click', function() {
+         content = CKEDITOR.instances.bodyText.getData()
+     }, false);
+</script>
     
   </body>
 </html>
