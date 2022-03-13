@@ -1,7 +1,6 @@
 import { baseUrl } from "../data/api.js";
 import { dropdown } from "./dropdownMenu.js";
 
-dropdown();
 
 const queryString = document.location.search;
 const params = new URLSearchParams(queryString);
@@ -46,11 +45,13 @@ try {
         altText = coverImage.alternativeText;
       }
     }
+    
 
     container.innerHTML = `
     <div>
-    <img src="${coverImage.url}" alt="${altText}">
-    <p>${author} - ${updated}</p>
+    <div class="img__container" style="background-image: url('${coverImage.url}');">
+    </div>
+    <p class="author__paragraph">${author} - ${updated}</p>
     <h1>${title}</h1>
     <div>
     ${body}
@@ -60,3 +61,8 @@ try {
 } catch (error) {
   container.innerHTML = error;
 }
+const dropdownButton = document.querySelector(".navbar__icon");
+
+dropdownButton.addEventListener("click", () => {
+  dropdown();
+});

@@ -59,7 +59,6 @@ export default function createFeaturedPosts(posts) {
       <p class="article__text">${post.summary}</p>
       <a href="/singlePost.html?id=${postId}">Read More</a>
       <div class="article__footer">
-        <p>${updated}</p>
         <p>${postAuthor}</p>
       </div>
     </div>`;

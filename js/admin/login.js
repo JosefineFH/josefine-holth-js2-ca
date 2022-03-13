@@ -3,8 +3,6 @@ import { dropdown } from "../component/dropdownMenu.js";
 import { baseUrl } from "../data/api.js";
 import {  saveToken,  saveUser, getToken, getUser } from "../utils/storage.js";
 
-dropdown();
-
 const form = document.querySelector("form");
 const email = document.querySelector("#email");
 const password = document.querySelector("#password");
@@ -75,3 +73,8 @@ async function loginUser(email, password) {
     displayMessage("warning", "There is something wrong with the login. Plies comeback later and try again.", ".message__container")
 }
 }
+const dropdownButten = document.querySelector(".navbar__icon");
+
+dropdownButten.addEventListener("click", () => {
+  dropdown();
+});

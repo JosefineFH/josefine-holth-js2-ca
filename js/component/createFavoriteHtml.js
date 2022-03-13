@@ -1,5 +1,6 @@
 import { removeFromFavorites } from "../utils/removeFavorites.js";
 import { getFromStorage } from "../utils/storage.js";
+import { dropdown } from "./dropdownMenu.js";
 
 let currentFavPosts;
 let container;
@@ -10,7 +11,7 @@ export function viewFavorites() {
   
   const loader = document.querySelector(".loader");
   loader.style.display = "none"
-  console.log(loader)
+  
   currentFavPosts = getFromStorage("favorite_article");
   container = document.querySelector(".post__container");
 
@@ -52,4 +53,9 @@ const emptyButton = document.querySelector(".empty__favorites");
   // localStorage.removeItem("favorite_article");
 
   container.innerHTML = `<h3 style="line-height:2em">You don't have any posts stored just yet. So way dont you look <a href="/index.html">her</a> and find something.</h3>`;
+});
+const dropdownButton = document.querySelector(".navbar__icon");
+
+dropdownButton.addEventListener("click", () => {
+  dropdown();
 });

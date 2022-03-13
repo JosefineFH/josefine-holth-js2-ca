@@ -1,8 +1,10 @@
 import { displayMessage } from "../component/displayMessage.js";
+import { dropdown } from "../component/dropdownMenu.js";
 import { baseUrl } from "../data/api.js";
 import getCategories from "../utils/getCategorys.js";
 import { getToken, getUser } from "../utils/storage.js";
 import { updateFavoritesData } from "../utils/updateFavorites.js";
+
 
 const token = getToken();
 const user = getUser();
@@ -122,3 +124,8 @@ async function updateArticles(data, id, cover) {
 
   
 }
+const dropdownButten = document.querySelector(".navbar__icon");
+
+dropdownButten.addEventListener("click", () => {
+  dropdown();
+});

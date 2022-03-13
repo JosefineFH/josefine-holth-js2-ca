@@ -2,6 +2,8 @@ import { getToken, getUser } from "../utils/storage.js";
 import { displayMessage } from "../component/displayMessage.js";
 import { baseUrl } from "../data/api.js";
 import getCategories from "../utils/getCategorys.js";
+import { dropdown } from "../component/dropdownMenu.js";
+
 
 const token = getToken();
 const user = getUser();
@@ -69,3 +71,8 @@ async function addPost(data, cover) {
     console.log(error);
   }
 }
+const dropdownButten = document.querySelector(".navbar__icon");
+
+dropdownButten.addEventListener("click", () => {
+  dropdown();
+});

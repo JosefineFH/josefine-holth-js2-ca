@@ -4,7 +4,7 @@ import { dropdown } from "./component/dropdownMenu.js";
 import { baseUrl } from "./data/api.js";
 import searchForPost from "./utils/searchPost.js";
 
-dropdown();
+getPosts();
 
 async function getPosts() {
   try {
@@ -12,20 +12,23 @@ async function getPosts() {
     const featuredPostUrl = baseUrl + "articles?_sort=published_at:DESC";
     const response = await fetch(featuredPostUrl);
     const posts = await response.json();
-
+    
     const { pathname } = document.location;
-
+    
     if (pathname === "/loginDashboard.html") {
       displayPosts(posts);
-    
+      
     } else {
       createFeaturedPosts(posts);
-
+      
       searchForPost(posts);
     }
   } catch (error) {
     console.log(error);
   }
 }
+const dropdownButten = document.querySelector(".navbar__icon");
 
-getPosts();
+dropdownButten.addEventListener("click", () => {
+  dropdown();
+});

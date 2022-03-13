@@ -1,8 +1,5 @@
 import { getToken, getUser } from "../utils/storage.js";
-import { dropdown } from "../component/dropdownMenu.js";
 import { removePost } from "./removePost.js";
-
-dropdown();
 
 export default function displayPosts(posts) {
   const token = getToken();
