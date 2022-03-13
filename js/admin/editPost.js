@@ -2,6 +2,7 @@ import { displayMessage } from "../component/displayMessage.js";
 import { baseUrl } from "../data/api.js";
 import getCategories from "../utils/getCategorys.js";
 import { getToken, getUser } from "../utils/storage.js";
+import { updateFavoritesData } from "../utils/updateFavorites.js";
 
 const token = getToken();
 const user = getUser();
@@ -55,9 +56,6 @@ form.addEventListener("submit", submitChanges);
 function submitChanges(event) {
   event.preventDefault();
 
-  let content = CKEDITOR.instances.bodyText.getData()
-
-
   message.innerHTML = "";
   const title = titleInput.value.trim();
   const author = authorInput.value.trim();
@@ -67,7 +65,6 @@ function submitChanges(event) {
   const idValue = idInput.value;
   const category = categories.value;
 
-  console.log(bodyText);
   if (
     title.length === 0 ||
     summary.length === 0 ||
@@ -89,7 +86,6 @@ function submitChanges(event) {
 
 async function updateArticles(data, id, cover) {
   const updateUrl = baseUrl + "articles/" + id;
-console.log(data)
   const formData = new FormData();
 
   formData.append("files.cover", cover[0]);
@@ -105,18 +101,24 @@ console.log(data)
     },
   };
 
+  
   try {
     const response = await fetch(updateUrl, options);
     const json = await response.json();
+    const title = json.title
+    const img = json.cover[0].url
+
+    updateFavoritesData(img, id ,title)
 
     if (json.error) {
         displayMessage("error", json.error.message, ".message__container");
     }
-    console.log(json)
-    window.location.href = "/loginDashboard.html"
+
+    window.location.href = "/loginDashboard.html";
 
   } catch (error) {
-    console.log(error);
+    displayMessage("warning", "Something went wrong when saving this article", ".message__container");
   }
+
   
 }
