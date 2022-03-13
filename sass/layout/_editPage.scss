@@ -1,0 +1,23 @@
+div#editor{
+  display: none;
+}
+section{
+  margin: 1em;
+}
+.edit__container{
+  form{
+    width: 100%;
+    max-width: 1000px;
+    margin: auto;
+
+    .input__container{
+      display: grid;
+      grid-template-columns: 1fr 3fr;
+      margin: 5px 0;
+    }
+    .textArea__body{
+      display: block;
+      grid-template-columns: auto;
+    }
+  }
+}

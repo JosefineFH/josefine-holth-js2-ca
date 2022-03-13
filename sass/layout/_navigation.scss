@@ -4,7 +4,7 @@
   .navbar__icon {
     display: block;
     cursor: pointer;
-    z-index: inherit;
+    z-index: 2;
     position: relative;
     padding: 20px;
     font-size: x-large;
@@ -22,6 +22,7 @@
     align-items: center;
     position: absolute;
     list-style-type: none;
+    z-index: 1;
 
     justify-content: center;
     background-color: #AEA9C5;
@@ -39,6 +40,7 @@
         font-family: sans-serif;
         font-weight: bold;
         padding: 20px;
+        text-transform: uppercase;
       }
 
       a:hover {

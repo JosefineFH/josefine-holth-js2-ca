@@ -13,6 +13,9 @@ main{
   margin-top: $baseMargin;
   padding: $baseMargin;
 }
+h2{
+  font-family: $headerFont;
+}
 ul{
   list-style: none;
 }

@@ -5,8 +5,13 @@
 
 
 /* ------------------------------- components ------------------------------- */
-@import "components/postStyle";
+@import "components/articleCard";
 @import "components/button";
-@import "components/postDetails";
+@import "components/articleDetails";
 @import "components/input";
-@import "components/form"
+@import "components/form";
+
+/* --------------------------------- layouts -------------------------------- */
+@import "layout/logDashboard";
+@import "layout/editPage";
+@import "layout/postLayout";

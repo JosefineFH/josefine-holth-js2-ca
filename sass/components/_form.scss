@@ -2,3 +2,26 @@ form{
   display: flex;
   flex-direction: column;
 }
+
+/* ------------------------------- login page ------------------------------- */
+.login__container{
+  width: 700px;
+  margin: auto;
+  div{
+    margin: 10px;
+  }
+}
+.password__container, .email__container{
+  width: 100%;
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+}
+
+@media (min-width: $breakpoint-tablet){
+  .password__container, .email__container{
+    grid-template-columns: 100px 1fr;
+    margin: auto;
+    
+  }
+}
