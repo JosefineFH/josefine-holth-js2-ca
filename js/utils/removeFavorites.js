@@ -1,4 +1,3 @@
-import createFeaturedPosts from "../component/createHTML.js"
 import { saveArticle } from "./storage.js"
 
 export function removeFromFavorites(posts){

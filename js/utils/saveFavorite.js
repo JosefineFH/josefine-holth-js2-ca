@@ -18,7 +18,6 @@ export function saveToFavorites(id, title, imgUrl) {
     };
     currentFavPosts.push(data);
     saveArticle(currentFavPosts);
-    console.log(currentFavPosts.length);
 
     count++;
     countContainer.innerHTML = `<p>Posts in favorite: <span class="favorite_count">${count}</span></p>`;
