@@ -37,4 +37,4 @@ password: Pass123
 ```
 
 ## Status
-- [ ] adding a CKEditor to the text body of a post when edition or add a post.
+- [x] adding a CKEditor to the text body of a post when edition or add a post.
